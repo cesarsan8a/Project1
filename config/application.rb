@@ -29,5 +29,6 @@ module Project1
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    RSpotify::authenticate(Rails.application.secrets.spotify_client_id, Rails.application.secrets.spotify_client_secret)
   end
 end

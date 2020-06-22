@@ -52,4 +52,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rspotify'
 gem 'oauth2'
-gem 'rspotify/oauth'
+gem 'omniauth-spotify'
