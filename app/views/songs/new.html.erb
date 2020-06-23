@@ -1,0 +1,24 @@
+<h1>Search for songs!</h1>
+
+<form action="<%= new_song_path %>" method='get'>
+  <label for="">
+    Title:
+    <input type="text" name='title' requiered>
+  </label>
+  <button>Search</button>
+</form>
+
+<% if @song_title.present? %>
+  <ol>
+    <li><%= link_to RSpotify::Track.search(params[:title])[0].name, "/showresult/#{ RSpotify::Track.search(params[:title])[0].id }" %></li>
+    <li><%= link_to RSpotify::Track.search(params[:title])[1].name, "/showresult/#{ RSpotify::Track.search(params[:title])[1].id }" %> %></li>
+    <li><%= link_to RSpotify::Track.search(params[:title])[2].name, "/showresult/#{ RSpotify::Track.search(params[:title])[2].id }" %> %></li>
+    <li><%= link_to RSpotify::Track.search(params[:title])[3].name, "/showresult/#{ RSpotify::Track.search(params[:title])[3].id }" %> %></li>
+    <li><%= link_to RSpotify::Track.search(params[:title])[4].name, "/showresult/#{ RSpotify::Track.search(params[:title])[4].id }" %> %></li>
+    <li><%= link_to RSpotify::Track.search(params[:title])[5].name, "/showresult/#{ RSpotify::Track.search(params[:title])[5].id }" %> %></li>
+    <li><%= link_to RSpotify::Track.search(params[:title])[6].name, "/showresult/#{ RSpotify::Track.search(params[:title])[6].id }" %> %></li>
+    <li><%= link_to RSpotify::Track.search(params[:title])[7].name, "/showresult/#{ RSpotify::Track.search(params[:title])[7].id }" %> %></li>
+    <li><%= link_to RSpotify::Track.search(params[:title])[8].name, "/showresult/#{ RSpotify::Track.search(params[:title])[8].id }" %> %></li>
+    <li><%= link_to RSpotify::Track.search(params[:title])[9].name, "/showresult/#{ RSpotify::Track.search(params[:title])[9].id }" %> %></li>
+  </ol>
+<% end %>

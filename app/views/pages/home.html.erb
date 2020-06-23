@@ -1,2 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Make a playlist!</h1>
+
+<% if @spotify_user.present? %>
+  <marquee behavior="" direction="">
+    <h2>Welcome back <%= @spotify_user.email %></h2>
+  </marquee>
+<% end %>
