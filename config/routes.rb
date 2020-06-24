@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+
   root :to => 'pages#home'
   resources :users
   resources :songs
   resources :playlists
 
-  get '/showresult/:spotify_id' => 'songs#show_result', :as =>'show_result'
+  get 'songs/showresult/:spotify_id' => 'songs#show_result', :as =>'show_result'
+  post 'songs/showresult/:spotify_id' => 'songs#create'
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'

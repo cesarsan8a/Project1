@@ -1,1 +1,9 @@
-<h1><%=  %></h1>
+<h1><%= @songs.title %></h1>
+
+<%= image_tag @songs.image, :class => 'feature' %>
+
+<ul>
+  <li>Title: <%= @songs.title %></li>
+  <li>Artist: <%= @songs.artist %></li>
+  <li>Album: <%= @songs.album %></li>
+</ul>

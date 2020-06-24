@@ -17,6 +17,8 @@
       <% else %>
         <%= link_to 'Sign in with Spotify', login_path %>
       <% end %>
+      <%= link_to "Search songs", new_song_path %>
+      <%= link_to "All songs", songs_path %>
 </nav>
     <%= yield %>
   </body>
