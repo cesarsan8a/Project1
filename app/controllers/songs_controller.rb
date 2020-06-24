@@ -18,7 +18,17 @@ class SongsController < ApplicationController
   end
 
   def show
-    @songs = Song.find params[:id]
+    @song = Song.find params[:id]
+  end
+
+  def edit
+    @song = Song.find params[:id]
+  end
+
+  def update
+    song = Song.find params[:id]
+    song.update song_params
+    redirect_to song
   end
 
   def create
@@ -28,10 +38,17 @@ class SongsController < ApplicationController
     redirect_to song
   end
 
-  def delete
+  def destroy
+    song = Song.find params[:id]
+    song.destroy
+    redirect_to songs_path
   end
 
+private
   def song_params
-    params.require(:song).permit(:title, :artist, :album, :spotify_song_id, :image)
+    params.require(:song).permit(:title, :artist, :album, :spotify_song_id, :image, playlist_ids:[])
+  end
+  def playlist_params
+    params.require(:playlist).permit(:playlist_id)
   end
 end

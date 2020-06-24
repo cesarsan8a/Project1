@@ -1,9 +1,21 @@
-<h1><%= @songs.title %></h1>
+<h1><%= @song.title %></h1>
 
-<%= image_tag @songs.image, :class => 'feature' %>
+<%= image_tag @song.image, :class => 'feature' %>
 
 <ul>
-  <li>Title: <%= @songs.title %></li>
-  <li>Artist: <%= @songs.artist %></li>
-  <li>Album: <%= @songs.album %></li>
+  <li>Title: <%= @song.title %></li>
+  <li>Artist: <%= @song.artist %></li>
+  <li>Album: <%= @song.album %></li>
+  <li>
+    Playlists: <% @song.playlists.each do |pl| %>
+                  <ul>
+                    <li><%= pl.title %></li>
+                  </ul>
+                <% end %>
+  </li>
 </ul>
+
+<div class="controls">
+  <%= link_to "Edit Song", edit_song_path(@song) %>
+  <%= button_to 'Delete Song', @song, :method => 'delete' %>
+</div>

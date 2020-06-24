@@ -1,1 +1,13 @@
-<h1><%= @playlists.title %></h1>
+<h1><%= @playlist.title %></h1>
+
+<% @playlist.songs.each do |song| %>
+  <ul>
+    <%=link_to image_tag(song.image, :class =>'thumb'), song %>
+    <li><%= "#{ song.title } - #{ song.artist }" %></li>
+  </ul>
+<% end %>
+
+<div class="controls">
+  <%= link_to "Rename Playlist", edit_playlist_path(@playlist) %>
+  <%= button_to 'Delete Playlist', @playlist, :method => 'delete' %>
+</div>

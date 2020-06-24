@@ -1,0 +1,9 @@
+<h1><%= @playlist.title %></h1>
+
+<%= form_for @playlist do |f| %>
+
+  <%= f.label :title, :value => "#{ @playlist.title }" %>
+  <%= f.text_field :title %>
+
+  <%= f.submit %>
+<% end %>

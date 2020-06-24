@@ -1,0 +1,27 @@
+<h1><%= @song.title %></h1>
+
+<%= image_tag @song.image, :class => 'feature' %>
+
+<%= form_for @song do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, :value => "#{@song.title}" %>
+
+  <%= f.label :artist %>
+  <%= f.text_field :artist, :value => "#{@song.artist}" %>
+
+  <%= f.label :album %>
+  <%= f.text_field :album, :value => "#{@song.album}" %>
+
+  <%= f.label :image %>
+  <%= f.url_field :image, :value => "#{@song.image}" %>
+
+  <%= label_tag :playlist_id %>
+  <%= collection_check_boxes :song, :playlist_ids, Playlist.all, :id, :title do |b| %>
+    <%= b.check_box %>
+    <%= b.label %>
+  <% end %>
+  <!-- <%= select_tag :playlist_id, options_for_select(Playlist.pluck(:title, :id)) %> -->
+
+  <%= f.submit "Save" %>
+
+<% end %>
