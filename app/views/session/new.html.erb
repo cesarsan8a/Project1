@@ -1,4 +1,9 @@
 <h1>Session#new</h1>
 <p>Find me in app/views/session/new.html.erb</p>
 
-<p><%= @spotify_user.id %></p>
+<%= form_tag login_path do%>
+  <%= label_tag :usrname %>
+  <%= text_field_tag :email %>
+
+  <%= submit_tag "Sign in" %>
+<% end %>

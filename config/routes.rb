@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'
 
   # get '/auth/spotify' => 'users#spotify'
-  get '/auth/spotify/callback' => 'users#spotify'
+  get '/auth/spotify/:callback' => 'users#spotify'
+  post '/auth/spotify/:callback/:id' => 'users#create'
+
 end

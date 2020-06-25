@@ -1,0 +1,15 @@
+<%= form_for @spotify_user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email, :value => f.email %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username, :value => f.id %>
+
+  <%= f.label :user_info %>
+  <%= f.text_field :user_info, :value => f.to_hash %>
+
+  <%= f.label :display_name %>
+  <%= f.text_field :display_name, :value => f.display_name %>
+
+  <%= f.submit %>
+<% end %>

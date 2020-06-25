@@ -1,1 +1,17 @@
-<p>Hola</p>
+<h1><%= "#{@spotify_user.display_name}'s Spotify Profile" %></h1>
+
+<%= form_for @user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email, :value => @spotify_user.email %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username, :value => @spotify_user.id %>
+
+  <%= f.label :user_info %>
+  <%= f.text_field :user_info, :value => @spotify_user.to_hash %>
+
+  <%= f.label :display_name %>
+  <%= f.text_field :display_name, :value => @spotify_user.display_name %>
+
+  <%= f.submit %>
+<% end %>
