@@ -1,9 +1,15 @@
 <h1>All songs</h1>
 
-<% @songs.each do |song| %>
-  <%= image_tag song.image, :class => 'feature' %>
-  <ul>
-    <li><%= link_to song.title, song %></li>
-  </ul>
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <% @songs.each do |song| %>
+      <%= link_to image_tag(song.image, :class => 'feature'), song %>
+      <ul style="list-style-type: none">
+        <li><%= link_to "#{song.title} - #{song.artist}", song %></li>
+      </ul>
 
-<% end %>
+    <% end %>
+
+  </div>
+
+</div>

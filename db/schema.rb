@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_24_084656) do
+ActiveRecord::Schema.define(version: 2020_06_25_061747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_06_24_084656) do
     t.text "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "playlists_songs", id: false, force: :cascade do |t|
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_06_24_084656) do
     t.string "username"
     t.text "user_info"
     t.text "display_name"
+    t.string "password_digest"
   end
 
 end

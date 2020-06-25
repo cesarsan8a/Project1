@@ -1,11 +1,17 @@
 <h1><%= @playlist.title %></h1>
 
-<% @playlist.songs.each do |song| %>
-  <ul>
-    <%=link_to image_tag(song.image, :class =>'thumb'), song %>
-    <li><%= "#{ song.title } - #{ song.artist }" %></li>
-  </ul>
-<% end %>
+
+    <% @playlist.songs.each do |song| %>
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+      <ul style="list-style-type: none">
+        <%=link_to image_tag(song.image, :class =>'thumb'), song %>
+        <li><%= "#{ song.title } - #{ song.artist }" %></li>
+      </ul>
+    </div>
+  </div>
+    <% end %>
+
 
 <div class="controls">
   <%= link_to "Rename Playlist", edit_playlist_path(@playlist) %>

@@ -1,4 +1,5 @@
 class PlaylistsController < ApplicationController
+  before_action :check_for_login
   def index
     @playlists = Playlist.all
   end
@@ -18,7 +19,7 @@ class PlaylistsController < ApplicationController
 
   def edit
     @playlist = Playlist.find params[:id]
-    
+
   end
 
   def update
@@ -32,8 +33,9 @@ class PlaylistsController < ApplicationController
     playlist.destroy
     redirect_to playlists_path
   end
+
   private
   def playlist_params
-    params.require(:playlist).permit(:title)
+    params.require(:playlist).permit(:title, :user_id)
   end
 end

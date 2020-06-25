@@ -1,20 +1,32 @@
 <h1>Search for songs!</h1>
 
-<form action="<%= new_song_path %>" method='get'>
-  <label for="">
-    Title:
-    <input type="text" name='title' requiered>
-  </label>
-  <button>Search</button>
-</form>
-
-<% if @song_title.present? %>
-  <% @spotify_search.each do |result| %>
-    <ul>
-      <li>
-        <%= image_tag result.album.images.first['url'], :class => 'thumb' %>
-        <%= link_to "#{ result.name } - #{ result.artists.first.name }", "showresult/#{ result.id }" %>
-      </li>
-    </ul>
-  <% end %>
-<% end %>
+<div class="row">
+  <div class="col-md-4">
+    <!-- This form will action a GET request to get the songs from spotify -->
+    <form action="<%= new_song_path %>" method='get'>
+      <div class="form-group">
+        <label for="">
+          Title:
+          <input type="text" name='title' requiered>
+        </label>
+      </div>
+      <button>Search</button>
+    </form>
+  </div>
+</div>
+</br>
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <!-- The following block of code will show the results of the search -->
+    <% if @song_title.present? %> <!-- The conditional will hide the "results" when there's nothing to show -->
+      <% @spotify_search.each do |result| %>
+        <ul style="list-style-type: none">
+          <li>
+            <%= image_tag result.album.images.first['url'], :class => 'thumb' %>
+            <%= link_to "#{ result.name } - #{ result.artists.first.name }", "showresult/#{ result.id }" %>
+          </li>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+</div>

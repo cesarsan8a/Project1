@@ -13,22 +13,39 @@
   <body>
     <div class="container">
       <nav>
-        <%= link_to 'Home', root_path %>
-        <% if @spotify_user.present? %>
+        <ul class="nav nav-tabs">
+          <li class="nav-item"><%= link_to 'Home', root_path, :class => "nav-link active" %></li>
+          <li class="nav-item">
+              <%= link_to "Songs", songs_path, :class => "nav-link active" %>
+          </li>
+          <li class="nav-item">
+              <%= link_to "Search Songs", new_song_path, :class => "nav-link active" %>
+          </li>
+          <li class="nav-item">
+              <%= link_to "Playlists", playlists_path, :class => "nav-link active" %>
+          </li>
+          <li class="nav-item">
+              <%= link_to "New playlist", new_playlist_path, :class => "nav-link active" %>
+          </li>
+          <% if @current_user.present? %>
+          <li class="nav-item">
+            <%= link_to "Log out #{ @current_user.email }", login_path, :method => 'delete', :class => "nav-link active" %>
+          </li>
+          <% else %>
+          <li class="nav-item"><%= link_to 'Sign up', new_user_path, :class => "nav-link active" %></li>
+          <li class="nav-item"><%= link_to 'Sign in', login_path, :class => "nav-link active" %></li>
+          <% end %>
+        </ul>
+
+
+        <!-- <% if @spotify_user.present? %>
           <%= link_to "Log out #{ @spotify_user.display_name }", "/auth/spotify", :method => 'delete' %>
         <% else %>
           <%= link_to 'Sign in with Spotify', "/auth/spotify" %>
         <% end %>
-        <% if @current_user.present? %>
-          <%= link_to "Log out #{ @current_user.email }", login_path, :method => 'delete' %>
-        <% else %>
-          <%= link_to 'Sign up', new_user_path %>
-          <%= link_to 'Sign in', login_path %>
-        <% end %>
-        <%= link_to "Search songs", new_song_path %>
-        <%= link_to "All songs", songs_path %>
-        <%= link_to "All Playlists", playlists_path %>
-        <%= link_to "Create new playlist", new_playlist_path %>
+          Sign in to spotify user account
+      -->
+
       </nav>
       <%= yield %>
     </div>

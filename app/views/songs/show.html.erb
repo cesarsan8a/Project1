@@ -1,19 +1,24 @@
 <h1><%= @song.title %></h1>
 
-<%= image_tag @song.image, :class => 'feature' %>
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <%= image_tag @song.image, :class => 'feature' %>
 
-<ul>
-  <li>Title: <%= @song.title %></li>
-  <li>Artist: <%= @song.artist %></li>
-  <li>Album: <%= @song.album %></li>
-  <li>
-    Playlists: <% @song.playlists.each do |pl| %>
-                  <ul>
-                    <li><%= pl.title %></li>
-                  </ul>
-                <% end %>
-  </li>
-</ul>
+    <ul style="list-style-type: none">
+      <li>Title: <%= @song.title %></li>
+      <li>Artist: <%= @song.artist %></li>
+      <li>Album: <%= @song.album %></li>
+      <li>
+        Playlists: <% @song.playlists.each do |pl| %>
+                      <ul>
+                        <li><%= pl.title %></li>
+                      </ul>
+                    <% end %>
+      </li>
+    </ul>
+
+  </div>
+</div>
 
 <div class="controls">
   <%= link_to "Edit Song", edit_song_path(@song) %>

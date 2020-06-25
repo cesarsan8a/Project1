@@ -19,7 +19,8 @@
   <%= f.url_field :image, :value => "#{@search_result.album.images.first['url']}" %>
 
   <%= label_tag :playlist_id %>
-  <%= select_tag :playlist_id, options_for_select(Playlist.pluck(:title, :id)) %>
+  <%= select_tag :playlist_id, options_for_select(Playlist.where(user_id: session[:user_id]).pluck(:title, :id)) %>
+  <!-- <%= select_tag :playlist_id, options_for_select(Playlist.pluck(:title, :id)) %> -->
 
   <%= f.submit "Add Song" %>
 

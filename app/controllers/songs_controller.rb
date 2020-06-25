@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  before_action :check_for_login
   def index
     @songs = Song.all
   end
@@ -15,6 +16,7 @@ class SongsController < ApplicationController
     @song = Song.new
     @playlist = Playlist.all
     @search_result = RSpotify::Track.find("#{ params[:spotify_id] }")
+
   end
 
   def show
