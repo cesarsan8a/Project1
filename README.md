@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Playlist maker, created by Cesar Sanchez as his first project at General Assembly Melbourne.
 
-Things you may want to cover:
+## Heroku
 
-* Ruby version
+You can visit the playlist maker here https://project1-cs-spotify.herokuapp.com/
 
-* System dependencies
+## Usage
 
-* Configuration
+After creating an account, visit the create a playlist link to give your playlist a name. Once, done that search for songs to add them to it.
 
-* Database creation
+## Details
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This playlist maker uses the gem rspotify to search in Spotify's database. If you need more info visit https://github.com/guilhermesad/rspotify
