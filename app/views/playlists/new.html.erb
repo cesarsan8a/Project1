@@ -8,7 +8,7 @@
       <%= f.text_field :title %>
     </div>
       <%= f.hidden_field :user_id, :value => session[:user_id] %>
-
+      <!-- This will assign the playlist to the current user -->
       <%= f.submit %>
     <% end %>
   </div>

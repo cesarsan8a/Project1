@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create user_params
-    if @user.save # returns truthy on success
+    if @user.save # If it can save it it will save the user id into the session params
       session[:user_id] = @user.id
       redirect_to root_path
     else
@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+# This action aunthenticates the user with Spotify.
   def spotify
     @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
     @user = User.new

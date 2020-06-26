@@ -1,27 +1,51 @@
 <h1><%= @search_result.name %> - <%= @search_result.artists.first.name %></h1>
 
-<%= image_tag @search_result.album.images.first['url'], :class => 'feature' %>
+<br>
 
-<%= form_for @song do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title, :value => "#{@search_result.name}" %>
+<div class="row">
+  <div class="col-md-4 offset-md-3">
+    <%= image_tag @search_result.album.images.first['url'], :class => 'feature' %>
+  </div>
+</div>
 
-  <%= f.label :artist %>
-  <%= f.text_field :artist, :value => "#{@search_result.artists.first.name}" %>
+<br>
 
-  <%= f.label :album %>
-  <%= f.text_field :album, :value => "#{@search_result.album.name}" %>
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <%= form_for @song do |f| %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, :value => "#{@search_result.name}", :class => "form-control" %>
+    </div>
 
-  <%= f.label :spotify_song_id, "Song ID"%>
-  <%= f.text_field :spotify_song_id, :value => "#{@search_result.id}" %>
+    <div class="form-group">
+      <%= f.label :artist %>
+      <%= f.text_field :artist, :value => "#{@search_result.artists.first.name}", :class => "form-control" %>
+    </div>
 
-  <%= f.label :image %>
-  <%= f.url_field :image, :value => "#{@search_result.album.images.first['url']}" %>
+    <div class="form-group">
+      <%= f.label :album %>
+      <%= f.text_field :album, :value => "#{@search_result.album.name}", :class => "form-control" %>
+    </div>
 
-  <%= label_tag :playlist_id %>
-  <%= select_tag :playlist_id, options_for_select(Playlist.where(user_id: session[:user_id]).pluck(:title, :id)) %>
-  <!-- <%= select_tag :playlist_id, options_for_select(Playlist.pluck(:title, :id)) %> -->
+    <div class="form-group">
+      <%= f.label :spotify_song_id, "Song ID"%>
+      <%= f.text_field :spotify_song_id, :value => "#{@search_result.id}", :class => "form-control" %>
+    </div>
 
-  <%= f.submit "Add Song" %>
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.url_field :image, :value => "#{@search_result.album.images.first['url']}", :class => "form-control" %>
+    </div>
 
-<% end %>
+    <div class="form-group">
+      <%= label_tag :playlist_id %>
+      <%= select_tag :playlist_id, options_for_select(Playlist.where(user_id: session[:user_id]).pluck(:title, :id)), :class => "form-control" %>
+      <!-- The dropdown will show only the playlist the current user has created -->
+    </div>
+
+      <%= f.submit "Add Song" %>
+
+    <% end %>
+  </div>
+</div>
